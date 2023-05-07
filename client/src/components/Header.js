@@ -1,7 +1,7 @@
 import s from "./Header.module.css";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faMagnifyingGlass} from "@fortawesome/free-solid-svg-icons";
-
+//왜 자꾸 이상한 거 올라가냐
 function Header(){
     return(
         <div className={s.header}>
