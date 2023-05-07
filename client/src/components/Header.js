@@ -1,5 +1,6 @@
 import s from "./Header.module.css";
-
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+import {faMagnifyingGlass} from "@fortawesome/free-solid-svg-icons";
 
 function Header(){
     return(
@@ -10,7 +11,10 @@ function Header(){
                 <li> 메뉴 2</li>
             </ul>
 
-            <div>검색창</div>
+            <div>
+            <input type="text" placeholder="Search"></input>
+            <button><FontAwesomeIcon icon={faMagnifyingGlass} /></button>
+            </div>
         </div>
     )
 }
