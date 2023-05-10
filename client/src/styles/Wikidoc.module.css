@@ -1,0 +1,51 @@
+.title{
+ font-weight : bold;   
+ font-size : 2.2rem;
+}
+
+
+
+.header{
+    background-color: #F5F8FA;
+}
+
+.headerContainer{
+    display : flex;
+    justify-content:  space-between;
+    margin-bottom : 20px;
+}
+
+.buttonContainer button{
+    font-size : 0.9rem;
+    align-items: center;
+    cursor : pointer;
+    height : 35px;
+    text-align: center;
+    padding : 5px 10px;
+    background-color: white;
+    border : 1px solid #CCCCCC;
+}
+
+#buttonFirst{
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+}
+
+#buttonLast{
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
+#red{
+    color : white;
+    background-color: #D9534F;
+}
+
+.time{
+    text-align: right;
+}
+
+.body{
+    margin-top : 16px;
+    white-space: pre-wrap;
+}

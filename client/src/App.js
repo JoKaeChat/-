@@ -9,7 +9,11 @@ function App() {
   return (
     <Router>
       <Switch>
+        <Route path="/history/:title">{<WikiDocHistory/>}</Route>
+        <Route path ="/edit/:title">{<WikiDocEdit/>}</Route>
+        <Route path = "/w/:title"> {<WikiDoc/>} </Route>
         <Route path = "/"> { <Main/>} </Route>
+
       </Switch>
     </Router>
   );
