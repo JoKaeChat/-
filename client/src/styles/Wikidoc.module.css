@@ -1,9 +1,7 @@
 .title{
  font-weight : bold;   
- font-size : 2.2rem;
+ font-size : 2.0rem;
 }
-
-
 
 .header{
     background-color: #F5F8FA;
@@ -12,7 +10,7 @@
 .headerContainer{
     display : flex;
     justify-content:  space-between;
-    margin-bottom : 20px;
+    padding : 20px 10px 20px 10px;
 }
 
 .buttonContainer button{
@@ -42,10 +40,40 @@
 }
 
 .time{
+    margin-top : 10px;
     text-align: right;
 }
 
 .body{
-    margin-top : 16px;
+    padding : 16px 10px 10px 10px;
     white-space: pre-wrap;
+}
+
+.flex{
+    display : flex;
+}
+
+.textarea{
+    flex : 1;
+    height : 20rem;
+}
+
+.saveBtnContainer{
+    display: flex;
+    justify-content: flex-end;
+}
+
+.saveBtn{
+    background-color: blue;
+    color : white;
+    
+
+}
+
+ul a{
+    color : blue;
+}
+
+.historyList li{
+    list-style : circle; 
 }
