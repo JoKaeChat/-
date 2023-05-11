@@ -1,15 +1,17 @@
+.bgcccc{
+    background-color: #CCCCCC;
 
+}
 
 .container{
     max-width: 1300px;
-    height : 35rem;
+    height : 43rem;
     padding : 20px;
     padding-top : 70px;
     border-radius: 5px;
     margin : 0 auto;
     display : flex;
-    background-color: white;
-    background-color: #CCCCCC;
+    box-sizing: border-box;
    
 }
 
@@ -26,6 +28,7 @@
     border : 1px solid #CCCCCC;
     width : 13rem;
     background-color: white;
+    box-sizing: border-box;
     
 }
 

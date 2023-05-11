@@ -1,8 +1,29 @@
 import s from "../styles/Header.module.css";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faMagnifyingGlass} from "@fortawesome/free-solid-svg-icons";
+import {useState} from "react";
+import {useNavigate} from "react-router-dom";
+
 
 function Header(){
+
+  const [text,setText] = useState('');
+  const movePage = useNavigate();
+
+  const handleChange = (e) => {
+    setText(e.nativeEvent.target.value);
+  }
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    movePage(`/w/${text}`);
+  }
+
+  const handleClick = (e) => {
+    e.preventDefault();
+    movePage(`/w/${text}`);
+  }
+
     return(
         <header>
         <div className={s.header}>
@@ -13,9 +34,9 @@ function Header(){
                 <li> 메뉴 2</li>
             </ul>
 
-            <form className={s.searchBar}>
-                <input type="text" placeholder="Search"></input>
-                <button><FontAwesomeIcon icon={faMagnifyingGlass} /></button>
+            <form className={s.searchBar} onSubmit={handleSubmit}>
+                <input type="text" placeholder="Search" onChange= {handleChange}></input>
+                <button><FontAwesomeIcon icon={faMagnifyingGlass} onClick={handleClick} /></button>
             </form>
            </nav>
         </div>

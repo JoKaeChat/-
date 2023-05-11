@@ -8,9 +8,8 @@ function WikiDocEdit(){
           <div className={s.headerContainer}>
             <h1 className={s.title}>[문서이름] (새 문서 생성)</h1>
             <div className={s.buttonContainer}>
-              <button id={s.buttonFirst}></button>
-              <button id={s.red}>삭제</button>
-              <button id={s.buttonLast}>이동</button>
+              <a id={s.red}>삭제</a>
+              <a className={s.buttonLast}>이동</a>
             </div>
           </div>
 

@@ -1,8 +1,13 @@
 import MainLayout from "../../components/mainLayout";
 import s from "../../styles/Wikidoc.module.css";
-
+import { useNavigate } from "react-router";
+import { useParams } from "react-router-dom";
 
 function WikiDocHistory(){
+
+    const {title} = useParams();
+   
+
     return(
        
         <MainLayout>
@@ -13,9 +18,10 @@ function WikiDocHistory(){
             
             <div>
                 <div className={s.buttonContainer}>
-                    <button id={s.buttonFirst}>편집</button>
-                    <button>토론</button>
-                    <button id={s.buttonLast}>문서 역사</button>
+                    <a href= {'/edit/' + {title}.title} id={s.buttonFirst}> 편집 </a>
+                    <a>토론</a>
+                    <a href ={'/history/'+{title}.title}id={s.buttonLast}>문서 역사</a>
+
                 </div>
                 <div className={s.time}>최근 수정 시각</div>
             </div>

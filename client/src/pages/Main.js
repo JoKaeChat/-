@@ -2,7 +2,12 @@ import MainLayout from "../components/mainLayout";
 import s from "../styles/Wikidoc.module.css";
 
 function Main(){
-    return(
+  
+  const params = "대문";
+  
+  return(
+
+      
        
         <MainLayout>
       <div>
@@ -13,10 +18,10 @@ function Main(){
             <h1 className={s.title}>멋사위키 대문</h1>
 
             <div className={s.buttonContainer}>
-              <button id={s.buttonFirst}>편집</button>
+              <a href= {'/edit/' + params} id={s.buttonFirst}> 편집 </a>
               
-              <button>토론</button>
-              <button id={s.buttonLast}>문서 역사</button>
+              <a href="#">토론</a>
+              <a href ={'/history/'+params}id={s.buttonLast}>문서 역사</a>
             </div>
 
           </div>
