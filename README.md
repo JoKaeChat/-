@@ -26,6 +26,7 @@
 
 
 ### 백
+- https://github.com/ajou20658/lionwiki_server.git 해당 리포지토리에서 따로 구현중
 - API만들기
   - create (date, title, RAW Content, authority) 
   - read 
