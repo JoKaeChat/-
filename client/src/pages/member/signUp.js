@@ -20,8 +20,8 @@ function SignUp(){
                         <input type="text" className={s.email}></input>
                         <label for ={s.name}>이름</label>
                         <input type="password" className={s.name}></input>
-                        <lable for ={s.id}>이메일</lable>
-                        <input type="text" className={s.id}></input>
+                        
+
                         <label for ={s.password}>비밀번호</label>
                         <input type="password" className={s.password}></input>
                     </div>

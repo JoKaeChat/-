@@ -16,8 +16,8 @@ function Login(){
             <form className={s.loginBody}>   
                 <div className={s.loginBodyContainer}>
                 <div className={s.loginInput}>
-                    <lable for ={s.username}>Username</lable>
-                    <input type="text" className={s.username}></input>
+                    <lable for ={s.username}>Email</lable>
+                    <input type="text" className={s.email}></input>
                     <label for ={s.password}>Password</label>
                     <input type="password" className={s.password}></input>
 
