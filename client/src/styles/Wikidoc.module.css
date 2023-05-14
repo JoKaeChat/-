@@ -10,7 +10,7 @@
 .headerContainer{
     display : flex;
     justify-content:  space-between;
-    padding : 20px 10px 20px 10px;
+    padding : 20px 10px 20px 20px;
     box-sizing: border-box;
 }
 
@@ -73,7 +73,6 @@
     background-color: blue;
     color : white;
     
-
 }
 
 ul a{
@@ -88,4 +87,65 @@ ul a{
 #red{
     color : white;
     background-color: #D9534F;
+}
+
+.loginTitle{
+    background-color: white;
+}
+
+.loginBody{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+
+.loginBodyContainer{
+    margin : 0 auto;
+}
+
+.loginInput{
+    display: flex;
+    flex-direction: column;
+}
+
+.loginInput input{
+    width : 400px;
+    height: 30px;
+    margin-top : 15px;
+    margin-bottom : 15px;
+}
+
+
+
+
+
+.loginSecondLine{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom : 15px;
+}
+
+.loginBtn{
+    display: flex;
+    justify-content: end;
+
+}
+
+.loginBtn a {
+    text-decoration: none;
+    border : 1px solid #CCCCCC;
+    color : black;
+    margin-right : 10px;
+    padding : 5px 5px;
+    font-size : 15px;
+
+}
+
+.loginBtn button{
+    background-color: #0275d8;
+    color : white;
+    border : none;
+    padding : 5px 5px;
+    font-size : 15px;
 }
