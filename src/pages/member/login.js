@@ -21,6 +21,7 @@ function Login() {
     };
     fetch("http://localhost:3001/api/login", {
       method: "POST",
+      credentials: "include",
       headers: {
         "Content-Type": "application/json",
       },
@@ -29,7 +30,7 @@ function Login() {
       .then((response) => {
         if (response.redirected) {
           window.location.href = "http://localhost:3000/"; //로그인 성공시 기본 페이지로 리다이렉션
-          console.log(response.headers.get("Location"));
+          console.log(response);
         }
       })
       .then((data) => {

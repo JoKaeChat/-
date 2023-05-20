@@ -4,7 +4,6 @@ import { useState, useEffect } from "react";
 
 function WikiDocHistory() {
   const [user, setUser] = useState("");
-
   useEffect(() => {
     fetch("http://localhost:3001/api/user", {
       method: "GET",
