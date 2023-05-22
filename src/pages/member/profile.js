@@ -3,8 +3,7 @@ import s from "../../styles/Wikidoc.module.css";
 import { useState, useEffect } from "react";
 
 function WikiDocHistory() {
-  const [user, setUser] = useState("");
-
+  const [user, setUser] = useState({});
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -14,7 +13,7 @@ function WikiDocHistory() {
         });
         if (response.ok) {
           const data = await response.json();
-          setUser(data);
+          setUser(data[0]);
           //console.log(data);
         } else {
           throw new Error("Request failed with status " + response.status);
@@ -26,10 +25,11 @@ function WikiDocHistory() {
 
     fetchData();
   }, []);
-  console.log(user[0]);
+  // console.log(user);
   return (
     <MainLayout>
-      <h1>{user[0].userID}</h1>
+      <h1>{user.userID}</h1>
+      <h1>{user.userEmail}</h1>
     </MainLayout>
   );
 }
