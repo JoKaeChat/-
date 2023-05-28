@@ -18,7 +18,7 @@ function WikiDoc() {
           const data = await response.json();
           setPost(data);
         } else {
-          console.log("문서만들기 버튼 보이게 구현");
+          setPost("db empty");
         }
       } catch (error) {
         console.error(error);
@@ -26,9 +26,15 @@ function WikiDoc() {
     };
     fetchPost();
   }, [title]);
-  if (!post) {
-    return <div>Loading...</div>;
-  }
+  console.log(post);
+  if (post == "db empty") {
+    return (
+      <div>
+        <a href={"/edit/"}>make doc</a>
+      </div>
+    );
+  } //a태그로 작성페이지로 넘겨주기
+
   console.log(post);
   return (
     <MainLayout>
@@ -49,12 +55,12 @@ function WikiDoc() {
                 </a>
               </div>
 
-              <div className={s.time}>최근 수정 시각:{post[0].created_at}</div>
+              <div className={s.time}>최근 수정 시각:</div>
             </div>
           </div>
         </div>
 
-        <div className={s.body}>{post[0].body}</div>
+        <div className={s.body}>내용</div>
       </div>
     </MainLayout>
   );
