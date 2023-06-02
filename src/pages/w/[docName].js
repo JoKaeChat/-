@@ -16,7 +16,11 @@ function WikiDoc() {
         });
         if (response) {
           const data = await response.json();
-          setPost(data);
+          if (data[0] === undefined) {
+            setPost("db empty");
+            return;
+          }
+          setPost(data[0]);
         }
       } catch (error) {
         console.error(error);
@@ -25,14 +29,14 @@ function WikiDoc() {
     fetchPost();
   }, [title]);
 
-  if (post.error == "db empty") {
+  if (post == "db empty") {
     return (
       <div>
         <a href={"/edit/"}>make doc</a>
       </div>
     );
   } //a태그로 작성페이지로 넘겨주기
-  console.log(post);
+  console.log(post[0]);
   return (
     <MainLayout>
       <div>
@@ -52,12 +56,12 @@ function WikiDoc() {
                 </a>
               </div>
 
-              <div className={s.time}>최근 수정 시각:{post[0].created_at}</div>
+              <div className={s.time}>최근 수정 시각:{post.created_at}</div>
             </div>
           </div>
         </div>
 
-        <div className={s.body}>{post[0].body}</div>
+        <div className={s.body}>{post.body}</div>
       </div>
     </MainLayout>
   );

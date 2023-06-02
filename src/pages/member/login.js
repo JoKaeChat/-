@@ -1,23 +1,53 @@
 import s from "../../styles/Wikidoc.module.css";
 import MainLayout from "../../components/mainLayout";
 import { useState } from "react";
+import { useRef } from "react";
 function Login() {
-  const [email, setEmail] = useState("");
-  const [pw, setPw] = useState("");
+  // const [email, setEmail] = useState("");
+  // const [pw, setPw] = useState("");
 
-  const handleEmail = (e) => {
-    setEmail(e.target.value);
-  };
+  // const handleEmail = (e) => {
+  //   setEmail(e.target.value);
+  // };
 
-  const handlePw = (e) => {
-    setPw(e.target.value);
-  };
+  // const handlePw = (e) => {
+  //   setPw(e.target.value);
+  // };
+  const emailRef = useRef("");
+  const pwRef = useRef("");
 
+  // const handleSubmit = (event) => {
+  //   event.preventDefault();
+  //   const reqData = {
+  //     userEmail: email,
+  //     userPassword: pw,
+  //   };
+  //   fetch("http://localhost:3001/api/login", {
+  //     method: "POST",
+  //     credentials: "include",
+  //     headers: {
+  //       "Content-Type": "application/json",
+  //     },
+  //     body: JSON.stringify(reqData),
+  //   })
+  //     .then((response) => {
+  //       if (response.redirected) {
+  //         window.location.href = "http://localhost:3000/"; //로그인 성공시 기본 페이지로 리다이렉션
+  //         console.log(response);
+  //       }
+  //     })
+  //     .then((data) => {
+  //       console.log(data);
+  //     })
+  //     .catch((error) => {
+  //       console.error(error);
+  //     });
+  // };
   const handleSubmit = (event) => {
     event.preventDefault();
     const reqData = {
-      userEmail: email,
-      userPassword: pw,
+      userEmail: emailRef.current.value,
+      userPassword: pwRef.current.value,
     };
     fetch("http://localhost:3001/api/login", {
       method: "POST",
@@ -53,17 +83,9 @@ function Login() {
           <div className={s.loginBodyContainer}>
             <div className={s.loginInput}>
               <label htmlFor={s.username}>Username</label>
-              <input
-                type="text"
-                onChange={handleEmail}
-                className={s.username}
-              ></input>
+              <input type="text" ref={emailRef} className={s.username}></input>
               <label htmlFor={s.password}>Password</label>
-              <input
-                type="password"
-                onChange={handlePw}
-                className={s.password}
-              ></input>
+              <input type="password" ref={pwRef} className={s.password}></input>
             </div>
 
             <div className={s.loginSecondLine}>

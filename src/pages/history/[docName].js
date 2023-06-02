@@ -1,6 +1,5 @@
 import MainLayout from "../../components/mainLayout";
 import s from "../../styles/Wikidoc.module.css";
-import { useNavigate } from "react-router";
 import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 function WikiDocHistory() {
@@ -21,7 +20,7 @@ function WikiDocHistory() {
           const data = await response.json();
           //console.log(data);
 
-          setList([...list, data]);
+          setList(data);
         } else {
           console.log("문서만들기 버튼 보이게 구현");
         }
@@ -31,13 +30,13 @@ function WikiDocHistory() {
     };
     fetchPost();
   }, [title]);
-  if (!list) {
-    return (
-      <div>
-        <h2>이 문서는 편집 역사가 없습니다.</h2>
-      </div>
-    );
-  }
+  // if (!list) {
+  //   return (
+  //     <div>
+  //       <h2>이 문서는 편집 역사가 없습니다.</h2>
+  //     </div>
+  //   );
+  // }
   console.log(list);
   return (
     <MainLayout>
@@ -64,7 +63,7 @@ function WikiDocHistory() {
 
         <ul className={s.historyList}>
           <li>
-            [문서 생성 시간][버전 이름] <a>보기</a>
+            [문서 생성 시간]{list[0].created_at}:[버전 이름] <a>보기</a>
           </li>
           <li>
             [문서 생성 시간][버전 이름] <a>보기</a>

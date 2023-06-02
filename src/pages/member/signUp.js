@@ -1,30 +1,43 @@
 import s from "../../styles/Wikidoc.module.css";
 import MainLayout from "../../components/mainLayout";
-import { useState } from "react";
-
+// import { useState } from "react";
+import { useRef } from "react";
 function SignUp() {
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [pw, setPw] = useState("");
+  // const [name, setName] = useState("");
+  // const [email, setEmail] = useState("");
+  // const [pw, setPw] = useState("");
+  const nameRef = useRef("");
+  const emailRef = useRef("");
+  const pwRef = useRef("");
 
-  const handleName = (e) => {
-    console.log(e.target.value);
-    setName(e.target.value);
-  };
-  const handleEmail = (e) => {
-    console.log(e.target.value);
-    setEmail(e.target.value);
-  };
-  const handlePw = (e) => {
-    console.log(e.target.value);
-    setPw(e.target.value);
-  };
+  // const handleSubmit = (event) => {
+  //   event.preventDefault();
+  //   const reqData = {
+  //     name: name,
+  //     password: pw,
+  //     email: email,
+  //   };
+  //   fetch("http://localhost:3001/api/signup", {
+  //     method: "POST",
+  //     headers: {
+  //       "Content-Type": "application/json",
+  //     },
+  //     body: JSON.stringify(reqData),
+  //   })
+  //     .then((response) => response.json())
+  //     .then((data) => {
+  //       //console.log(data);
+  //     })
+  //     .catch((error) => {
+  //       console.error(error);
+  //     });
+  // };
   const handleSubmit = (event) => {
     event.preventDefault();
     const reqData = {
-      name: name,
-      password: pw,
-      email: email,
+      name: nameRef.current.value,
+      password: pwRef.current.value,
+      email: emailRef.current.value,
     };
     fetch("http://localhost:3001/api/signup", {
       method: "POST",
@@ -35,7 +48,7 @@ function SignUp() {
     })
       .then((response) => response.json())
       .then((data) => {
-        console.log(data);
+        //console.log(data);
       })
       .catch((error) => {
         console.error(error);
@@ -54,27 +67,17 @@ function SignUp() {
           <div className={s.loginBodyContainer}>
             <div className={s.loginInput}>
               <label for={s.email}>이메일</label>
-              <input
-                type="text"
-                className={s.email}
-                onChange={handleEmail}
-              ></input>
+              <input type="text" className={s.email} ref={emailRef}></input>
               <label for={s.name}>이름</label>
-              <input
-                type="password"
-                className={s.name}
-                onChange={handleName}
-              ></input>
+              <input type="password" className={s.name} ref={nameRef}></input>
               <label for={s.password}>비밀번호</label>
-              <input
-                type="password"
-                className={s.password}
-                onChange={handlePw}
-              ></input>
+              <input type="password" className={s.password} ref={pwRef}></input>
             </div>
 
             <div className={s.loginBtn}>
-              <button type="submit">인증</button>
+              <button className={s.loginBtn} type="submit">
+                인증
+              </button>
             </div>
           </div>
         </form>

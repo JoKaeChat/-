@@ -1,7 +1,7 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Main from "./pages/Main";
 import WikiDoc from "./pages/w/[docName]";
-import WikiDocEdit from "./pages/edit/[docName]";
+// import WikiDocEdit from "./pages/edit/[docName]";
 import WikiDocHistory from "./pages/history/[docName]";
 import Login from "./pages/member/login";
 import SignUp from "./pages/member/signUp";
@@ -24,7 +24,7 @@ function App() {
           {" "}
         </Route>
 
-        <Route path="/edit/:title" element={<WikiDocEdit />}></Route>
+        {/* <Route path="/edit/:title" element={<WikiDocEdit />}></Route> */}
         <Route path="/w/:title" element={<WikiDoc />}>
           {" "}
         </Route>
