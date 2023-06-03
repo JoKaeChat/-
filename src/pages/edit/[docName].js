@@ -66,24 +66,38 @@ function WikiDocEdit() {
       [field]: value,
     });
   };
+
   return (
     <MainLayout>
       <div className={s.header}>
         <div className={s.headerContainer}>
-          <h1 className={s.title}>[문서이름] (문서 편집)</h1>
+          <h1 className={s.title}>{title}</h1>
           <div className={s.buttonContainer}>
-            <a id={s.red}>삭제</a>
-            <a className={s.buttonLast}>이동</a>
+            <Link to={`/delete/${title}`} id={s.red} className={s.buttonFirst}>
+              삭제
+            </Link>
+            <Link to={`/w/${title}`} className={s.buttonLast}>
+              돌아가기
+            </Link>
           </div>
         </div>
       </div>
 
       <div className={s.body}>
-        <div className={s.flex}>
-          <textarea className={s.textarea} />
+        <div className={`${s.flex} ${s.margin_bottom_10px}`}>
+          <textarea
+            onChange={(e) => {
+              setField("body", e.target.value);
+            }}
+            value={post?.body}
+            className={s.textarea}
+            ref={bodyRef}
+          />
         </div>
         <div className={s.saveBtnContainer}>
-          <button className={s.saveBtn}>저장</button>
+          <button className={s.saveBtn} onClick={submithandler}>
+            저장
+          </button>
         </div>
       </div>
     </MainLayout>

@@ -68,7 +68,7 @@ function Header() {
               </button>
             </form>
             <button className={s.user} onClick={clickUser}>
-              <FontAwesomeIcon icon={faUser} />
+              <FontAwesomeIcon icon={faUser}   />
             </button>
             {close && (
               <div className={s.pop}>

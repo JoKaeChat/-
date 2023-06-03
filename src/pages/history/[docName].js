@@ -3,6 +3,7 @@ import s from "../../styles/Wikidoc.module.css";
 import { useNavigate } from "react-router";
 import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 
 function WikiDocHistory() {
   const { title } = useParams();
@@ -35,7 +36,8 @@ function WikiDocHistory() {
     };
 
     fetchPost();
-  });
+  },[title]);
+
   if (data) {
     console.log("data:", data);
   }
@@ -44,35 +46,35 @@ function WikiDocHistory() {
       <div>
         <div className={s.header}>
           <div className={s.headerContainer}>
-            <h1 className={s.title}>[{title}] (문서 역사)</h1>
+            <h1 className={s.title}>{title} (문서 역사)</h1>
 
             <div>
               <div className={s.buttonContainer}>
-                <a href={"/edit/" + { title }.title} id={s.buttonFirst}>
-                  {" "}
-                  편집{" "}
-                </a>
-                <a>토론</a>
-                <a href={"/history/" + { title }.title} id={s.buttonLast}>
+                <Link to={"/edit/" + { title }.title} className={s.buttonFirst}>
+                  편집
+                </Link>
+                <Link to={"/history/" + { title }.title} className={s.buttonLast}>
                   문서 역사
-                </a>
+                </Link>
               </div>
-              <div className={s.time}>최근 수정 시각</div>
+              <div className={`${s.time} ${s.timeFormat} `}>{data?.created_at}</div>
             </div>
           </div>
         </div>
 
-        <ul className={s.historyList}>
-          <li>
-            [문서 생성 시간]{data[0].created_at}:[버전 이름] <a>보기</a>
-          </li>
-          <li>
-            [문서 생성 시간][버전 이름] <a>보기</a>
-          </li>
-          <li>
-            [문서 생성 시간][버전 이름] <a>보기</a>
-          </li>
-        </ul>
+        <div className={s.body}>
+                <ul className={s.historyList}>
+                  {
+                    data.map((history,index) => (
+                      <li key={index}>
+                          {history?.created_at} {history?.id} 
+                          <Link to={`/w/${title}/${history.id}`}>보기</Link>
+                      </li>
+                    ))
+                  }
+                </ul>
+        </div>
+
       </div>
     </MainLayout>
   );

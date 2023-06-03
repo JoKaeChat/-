@@ -1,17 +1,21 @@
 import MainLayout from "../../components/mainLayout";
 import s from "../../styles/Wikidoc.module.css";
-import { useParams } from "react-router-dom";
+import { useParams,Link } from "react-router-dom";
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 function WikiDoc() {
+  const {id} = useParams();
   const { title } = useParams();
   const [post, setPost] = useState("");
+  const movePage = useNavigate();
+  console.log('id는 ' + id);
 
   useEffect(() => {
     const fetchPost = async () => {
       try {
         const response = await fetch(
-          `http://54.180.147.24:3001/api/bbs/${title}`,
+          `http://54.180.147.24:3001/api/bbs/${title}/${id}`,
           {
             method: "GET",
             credential: "include",
@@ -34,9 +38,7 @@ function WikiDoc() {
 
   if (post == "db empty") {
     return (
-      <div>
-        <a href={"/edit/"}>make doc</a>
-      </div>
+      <div>최초!</div>
     );
   } //a태그로 작성페이지로 넘겨주기
   console.log(post[0]);
@@ -49,22 +51,21 @@ function WikiDoc() {
 
             <div>
               <div className={s.buttonContainer}>
-                <a href={"/edit/" + { title }.title} id={s.buttonFirst}>
-                  {" "}
-                  편집{" "}
-                </a>
-                <a>토론</a>
-                <a href={"/history/" + { title }.title} id={s.buttonLast}>
+                <Link to={"/edit/" + { title }.title} className={s.buttonFirst}>
+                  편집
+                </Link>
+                
+                <Link to={"/history/" + { title }.title} className={s.buttonLast}>
                   문서 역사
-                </a>
+                </Link>
               </div>
 
-              <div className={s.time}>최근 수정 시각:{post.created_at}</div>
+              <div className={`${s.time} ${s.timeFormat}`}>최근 수정 시각:{post?.created_at}</div>
             </div>
           </div>
         </div>
 
-        <div className={s.body}>{post.body}</div>
+        <div className={s.body}>{post?.body}</div>
       </div>
     </MainLayout>
   );

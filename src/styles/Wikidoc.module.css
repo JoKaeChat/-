@@ -46,10 +46,16 @@
 .time{
     margin-top : 18px;
     text-align: right;
-    font-size: 14px;
+    font-size: 10px;
     box-sizing: border-box;
-
 }
+
+.timeFormat{
+    font-size: 10px;
+    text-align : left;
+}
+
+
 
 .body{
     padding : 16px 10px 10px 25px;

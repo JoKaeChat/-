@@ -21,27 +21,27 @@ function App() {
           <Route path="/delete/:title" element={<Delete />}></Route>
           <Route path="/history/:title" element={<WikiDocHistory />}></Route>
           <Route path="member/change_password" element={<ChangePW />}>
-            {" "}
+          
           </Route>
 
           <Route path="member/mypage" element={<Mypage />}></Route>
           <Route path="/member/signUp" element={<SignUp />}>
-            {" "}
+          
           </Route>
           <Route path="/member/recover" element={<RecoverPassword />}>
-            {" "}
+           
           </Route>
 
           <Route path="/member/login" element={<Login />}>
-            {" "}
+            
           </Route>
 
           <Route path="/edit/:title" element={<WikiDocEdit />}></Route>
-          <Route path="/w/:title" element={<WikiDoc />}>
-            {" "}
+          <Route path="/w/:title/:id" element={<WikiDoc />}>
+            
           </Route>
           <Route path="/" element={<Main />}>
-            {" "}
+           
           </Route>
         </Routes>
       </Router>
