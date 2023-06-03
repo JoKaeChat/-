@@ -1,0 +1,74 @@
+import s from "../../styles/Wikidoc.module.css";
+import MainLayout from "../../components/mainLayout";
+// import { useState } from "react";
+import { useRef } from "react";
+function Login() {
+  const emailRef = useRef("");
+  const pwRef = useRef("");
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    const reqData = {
+      userEmail: emailRef.current.value,
+      userPassword: pwRef.current.value,
+    };
+    fetch("http://54.180.147.24:3001/api/login", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(reqData),
+    })
+      .then((response) => {
+        if (response.redirected) {
+          window.location.href = "http://54.180.147.24:3000/"; //로그인 성공시 기본 페이지로 리다이렉션
+          console.log(response);
+        }
+      })
+      .then((data) => {
+        console.log(data);
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  };
+  return (
+    <MainLayout>
+      <div>
+        <div className={`{${s.header} ${s.loginTitle}`}>
+          <div className={`${s.headerContainer}  `}>
+            <h1 className={`${s.title}`}>로그인</h1>
+          </div>
+        </div>
+
+        <form className={s.loginBody} onSubmit={handleSubmit}>
+          <div className={s.loginBodyContainer}>
+            <div className={s.loginInput}>
+              <label htmlFor={s.username}>Username</label>
+              <input type="text" ref={emailRef} className={s.username}></input>
+              <label htmlFor={s.password}>Password</label>
+              <input type="password" ref={pwRef} className={s.password}></input>
+            </div>
+
+            <div className={s.loginSecondLine}>
+              <div>
+                <input type="checkbox" className={s.checkbox}></input>
+                <label htmlFor={s.checkbox}>자동 로그인</label>
+              </div>
+              <a href="/member/recover">[아이디/비밀번호 찾기]</a>
+            </div>
+
+            <div className={s.loginBtn}>
+              <a href="/member/signUp">계정 만들기</a>
+              <button className={s.loginBtn} type="submit">
+                로그인
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </MainLayout>
+  );
+}
+
+export default Login;
