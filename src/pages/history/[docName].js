@@ -64,7 +64,7 @@ function WikiDocHistory() {
 
         <ul className={s.historyList}>
           <li>
-            [문서 생성 시간]{list[0].created_at}:[버전 이름] <a>보기</a>
+            [문서 생성 시간]{data[0].created_at}:[버전 이름] <a>보기</a>
           </li>
           <li>
             [문서 생성 시간][버전 이름] <a>보기</a>
