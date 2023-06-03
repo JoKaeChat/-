@@ -1,5 +1,5 @@
 .header{
-    background-color: #008275;
+    background-color: #B04E17;
     height : 2.8rem;
     position :fixed;
     top : 0px;
@@ -12,16 +12,20 @@
     max-width : 1250px;
     display: flex;
     justify-content: space-between;
-    align-items: center;
     color : white;
     font-size : 17px;
     position : relative;
-    margin : 0 auto;
-    padding-top : 10px; 
-       
+    margin : 0 auto;  
+    height : 2.8rem;
+}
+
+.headerListContainer{
+    display: flex;
+    align-items: center;
 }
 
 .headerContainer a{
+    padding-top : 10px; 
     text-decoration: none ;
     color : white;
     font-weight : 700;
@@ -35,7 +39,10 @@
 
 .headerContainer li{
     margin-right : 10px;
+    
 }
+
+
 
 .searchBar{
     height : 100%;
@@ -44,20 +51,33 @@
 
 .searchBarContainer{
     display : flex;
+    padding-right : 30px;
 }
 
 .searchBar input{
+    margin-top: 6px;
     border : 1px solid #CCCCCC;
+    height : 2rem;
+    border-top-left-radius:  10px;
+    border-bottom-left-radius:  10px;
 }
+.searchBar input::placeholder{
+    padding-left : 10px;
+}
+
 
 .searchBar button{
     background-color: white;
     border : 1px solid #CCCCCC;
     border-left : none;
+    height : 2rem;
+    border-top-right-radius:  10px;
+    border-bottom-right-radius:  10px;
+
 }
 
 .user{
-    background-color: #008275;
+    background-color: transparent;
     color : white;
     border : none;
     font-size : 20px;       
@@ -73,7 +93,7 @@
     background-color:  white;
     border : 1px solid #CCCCCC;
     top : 40px;
-    right : 4px;
+    right : 32px;
     display : flex;
     flex-direction: column;
     text-align: left;
